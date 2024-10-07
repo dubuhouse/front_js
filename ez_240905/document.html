@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 이름을 이용한 선택</title>
+</head>
+<body>
+    <div>
+        <h1>클래스 이름을 이용한 선택</h1>
+        <ul>
+            <li class="item odd">첫 번째 아이템 이에요!</li>
+            <li class="item even">두 번째 아이템 이에요!</li>
+            <li class="item odd">세 번째 아이템 이에요!</li>
+            <li class="item even">네 번째 아이템 이에요!</li>
+            <li class="item odd">다섯 번째 아이템 이에요!</li>
+        </ul>
+    </div>
+</body>
+<script>
+    HTMLCollection.prototype.forEach = Array.prototype.forEach;
+    // const items = document.getElementsByClassName(".item");--> .byClassName 이기때문에 .item으로 불러올필요없이 item으로 불러오면된다고한다
+    const items = document.getElementsByClassName("item");
+    console.log(items)
+    // console.log(items[0].className)
+
+    // items.forEach((item)=>{console.log(item)});
+
+    // 콘솔에 item들 모두 출력
+    const colors = {
+        even : "green",
+        odd : "pink"
+    }
+
+    colors
+    // 짝수(even)는 녹색, 홀수(odd)는 핑크
+    // items.forEach((item) => { item.style.color = "red" })
+    // items.forEach((item) => { console.log(item.classList)})
+    items.forEach((item) => { item.style.color = colors[item.classList[1]]});
+
+</script>
+</html>
